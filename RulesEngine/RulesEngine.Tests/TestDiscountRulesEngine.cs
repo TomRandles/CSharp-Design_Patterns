@@ -27,7 +27,6 @@ namespace RulesEngine.Tests
 
             var discount = _calculator.CalculateDiscountPercentage(customer);
 
-            // result.Should().Be(.05m);
             Assert.Equal(0.05m, discount);
         }
 
@@ -39,8 +38,6 @@ namespace RulesEngine.Tests
             var customer = CreateCustomer(customerAge);
 
             var discount = _calculator.CalculateDiscountPercentage(customer);
-
-            // result.Should().Be(.15m);
 
             Assert.Equal(0.15m, discount);
         }
@@ -56,7 +53,6 @@ namespace RulesEngine.Tests
             var discount = _calculator.CalculateDiscountPercentage(customer);
 
             Assert.Equal(0.10m, discount);
-            // result.Should().Be(.10m);
         }
 
         [Theory]
@@ -72,7 +68,6 @@ namespace RulesEngine.Tests
 
             var discount = _calculator.CalculateDiscountPercentage(customer);
 
-            //result.Should().Be(expectedDiscount);
             Assert.Equal(discount, expectedDiscount);
         }
 
@@ -88,8 +83,6 @@ namespace RulesEngine.Tests
 
             var discount = _calculator.CalculateDiscountPercentage(customer);
 
-            // result.Should().Be(expectedDiscount);
-
             Assert.Equal(discount, expectedDiscount);
         }
 
@@ -104,7 +97,6 @@ namespace RulesEngine.Tests
 
             var discount = _calculator.CalculateDiscountPercentage(customer);
 
-            // result.Should().Be(.10m);
             Assert.Equal(.10m, discount);
         }
 
@@ -119,7 +111,6 @@ namespace RulesEngine.Tests
 
             var discount = _calculator.CalculateDiscountPercentage(customer);
 
-            // result.Should().Be(.20m);
             Assert.Equal(.20m, discount);
         }
 
@@ -130,7 +121,6 @@ namespace RulesEngine.Tests
 
             var discount = _calculator.CalculateDiscountPercentage(customer);
 
-            // result.Should().Be(.10m);
             Assert.Equal(0.10m, discount);
         }
 
