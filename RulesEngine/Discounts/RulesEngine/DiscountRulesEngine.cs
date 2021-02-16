@@ -1,9 +1,6 @@
 ﻿using RulesEngine.Discounts.Rules;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RulesEngine.Discounts.RulesEngine
 {
@@ -21,6 +18,7 @@ namespace RulesEngine.Discounts.RulesEngine
             decimal discount = 0m;
             foreach (var rule in _rules)
             {
+                // Invoke the rule and replace the current discount if greater
                 discount = Math.Max(discount, rule.CalculateDiscount(customer, discount));
             }
             return discount;

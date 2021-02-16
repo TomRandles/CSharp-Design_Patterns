@@ -4,9 +4,11 @@ using Xunit;
 
 namespace RulesEngine.Tests
 {
-    public class TestDomainComplexityNoRulesEngine
+    public class TestDiscountRulesEngine
     {
-        private DiscountCalculatorComplexLogic _calculator = new DiscountCalculatorComplexLogic();
+        // private DiscountCalculatorOriginal _calculator = new DiscountCalculatorOriginal();
+
+        private DiscountCalculator _calculator = new DiscountCalculator();
 
         private const int DEFAULT_AGE = 30;
 
@@ -87,6 +89,7 @@ namespace RulesEngine.Tests
             var discount = _calculator.CalculateDiscountPercentage(customer);
 
             // result.Should().Be(expectedDiscount);
+
             Assert.Equal(discount, expectedDiscount);
         }
 
@@ -117,7 +120,7 @@ namespace RulesEngine.Tests
             var discount = _calculator.CalculateDiscountPercentage(customer);
 
             // result.Should().Be(.20m);
-            Assert.Equal(0.20m, discount);
+            Assert.Equal(.20m, discount);
         }
 
         [Fact]
