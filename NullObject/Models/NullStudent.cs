@@ -10,7 +10,7 @@ namespace NullObject.Models
     {
         public int Id { get; } = -1;
 
-        public string UserName => "Null value";
+        public string UserName => "Sean Citizen";
 
         public int CoursesCompleted { get; } = 0;
     }
