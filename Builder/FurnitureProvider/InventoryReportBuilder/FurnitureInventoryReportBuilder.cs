@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Builder.FurnitureProvider.InventoryManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BuilderDesignPattern
+namespace Builder.FurnitureProvider.InventoryBuilder
 {
     // Order build steps are executed under developer control
     // 
-    public class DailyReportBuilder : IFurnitureInventoryBuilder
+    public class DailyReportBuilder : IFurnitureInventoryReportBuilder
     {
         public DailyReportBuilder(IEnumerable<FurnitureItem> items)
         {
@@ -19,20 +20,20 @@ namespace BuilderDesignPattern
         private IEnumerable<FurnitureItem> _items;
 
         // Keep track of item its building
-        private InventoryReport _report;
+        private FurnitureInventoryReport _report;
 
         // Keep report tracking clean and safe
         public void Reset()
         {
-            _report = new InventoryReport();
+            _report = new FurnitureInventoryReport();
         }
 
-        public IFurnitureInventoryBuilder AddTitle()
+        public IFurnitureInventoryReportBuilder AddTitle()
         {
             _report.TitleSection = "Daily inventory report\n\n";
             return this;
         }
-        public IFurnitureInventoryBuilder AddDimensions()
+        public IFurnitureInventoryReportBuilder AddDimensions()
         {
             _report.DimensionsSection = string.Join(Environment.NewLine, 
                 _items.Select(p => $"Product: {p.Name} \n Price: {p.Price}\n " +
@@ -40,16 +41,16 @@ namespace BuilderDesignPattern
                 ));
             return this;
         }
-        public IFurnitureInventoryBuilder AddLogistics(DateTime date)
+        public IFurnitureInventoryReportBuilder AddLogistics(DateTime date)
         {
             _report.LogisticsSection = $"Report generated on: {date.ToShortDateString()} " +
                                        $"{date.ToShortTimeString()}";
             return this;
         }
 
-        public InventoryReport GetDailyReport()
+        public FurnitureInventoryReport GetDailyReport()
         {
-            InventoryReport finishedReport = _report;
+            FurnitureInventoryReport finishedReport = _report;
             Reset();
 
             return finishedReport;

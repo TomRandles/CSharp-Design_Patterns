@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace BuilderDesignPattern
+namespace Builder.FurnitureProvider.InventoryBuilder
 {
     // Job of director class - execute complex object build steps in a predetermined
     // sequence
     public class InventoryBuildDirector
     {
-        private IFurnitureInventoryBuilder _builder;
+        private IFurnitureInventoryReportBuilder _builder;
 
-        public InventoryBuildDirector(IFurnitureInventoryBuilder concreteBuilder)
+        public InventoryBuildDirector(IFurnitureInventoryReportBuilder concreteBuilder)
         {
             _builder = concreteBuilder;
         }

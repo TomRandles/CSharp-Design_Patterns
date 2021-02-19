@@ -1,4 +1,4 @@
-﻿namespace BuilderDesignPattern
+﻿namespace Builder.FurnitureProvider.InventoryBuilder
 {
     public class FurnitureItem
     {

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Builder.ApplianceManagement.ApplianceBuilder;
+using Builder.FurnitureProvider.InventoryBuilder;
+using System;
 using System.Collections.Generic;
 
-namespace BuilderDesignPattern
+namespace Builder
 {
     class Program
     {
@@ -32,7 +34,32 @@ namespace BuilderDesignPattern
                                     .GetDailyReport();
 
 
-            System.Console.WriteLine(fluentReport.Debug());
+            Console.WriteLine(fluentReport.Debug());
+
+            Console.WriteLine("Create new Heat Pump manager instance using the Builder design pattern");
+
+            var builder = new ApplianceManagerBuilder(ApplianceType.HeatPump);
+
+            var heatPumpManager = 
+                builder.AddApplianceManagerIdentifiers("HeatPump00657", "OvumHeatPump056")
+                   .AddIPConfiguration("192.168.45.01", 502)
+                   .AddAppServerConfiguration(3000, 2)
+                   .GetApplianceManager();
+
+            Console.WriteLine(heatPumpManager.Debug());
+
+            Console.WriteLine("Create new Fan Coil Unit manager instance using the Builder design pattern");
+            builder = new ApplianceManagerBuilder(ApplianceType.FanCoilUnit);
+
+            var fanCoilUnit =
+                builder.AddApplianceManagerIdentifiers("FanCoil00699", "Aertesi Zefiro 805")
+                   .AddIPConfiguration("192.168.45.02", 502)
+                   .AddAppServerConfiguration(3000, 3)
+                   .GetApplianceManager();
+
+            Console.WriteLine(fanCoilUnit.Debug());
+
+
         }
     }
 }

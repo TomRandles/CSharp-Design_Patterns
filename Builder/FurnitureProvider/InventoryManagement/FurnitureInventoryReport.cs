@@ -1,11 +1,11 @@
 ﻿using System.Text;
 
-namespace BuilderDesignPattern
+namespace Builder.FurnitureProvider.InventoryManagement
 {
  
     // Complex object to be given the Builder creation treatment
     // No constructor, will setup individual fields one by one. 
-    public class InventoryReport
+    public class FurnitureInventoryReport
     {
         public string TitleSection;
         public string DimensionsSection;
