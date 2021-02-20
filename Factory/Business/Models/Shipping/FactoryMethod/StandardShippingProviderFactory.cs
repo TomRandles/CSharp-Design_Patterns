@@ -9,7 +9,6 @@ namespace Factory.Business.Models.Shipping.FactoryMethod
     {
         ShippingProvider _shippingProvider;
 
-        // StandardShippingProvider
         
         public override ShippingProvider CreateShippingProvider(string country)
         {
